@@ -13,16 +13,8 @@ using namespace GView::View;
 extern "C" {
 PLUGIN_EXPORT bool Validate(const AppCUI::Utils::BufferView& buf, const std::string_view& extension)
 {
-    // Debug print: show extension passed to Validate
-    printf("[YAML::Validate] Extension received: '%.*s'\n", static_cast<int>(extension.size()), extension.data());
-    if (extension.empty())
-        return false;
-
-    auto lower_ext = std::string(extension);
-    std::transform(lower_ext.begin(), lower_ext.end(), lower_ext.begin(),
-                  [](unsigned char c) { return std::tolower(c); });
-
-    return (lower_ext == ".yaml" || lower_ext == ".yml");
+    // all good
+    return true;
 }
 PLUGIN_EXPORT TypeInterface* CreateInstance()
 {
